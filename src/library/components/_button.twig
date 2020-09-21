@@ -1,3 +1,5 @@
-{% if href and text %}
-	<div class="test-button--component"><a{% if href %} href="{{ href }}"{% endif %}{% if title %} title="{{ title }}"{% endif %}>{{ text }}</div></a>
-{% endif %}
+{# Adjusting div placement based on _copy.twig and _header.twig #}
+<div class="test-button--component">
+	{# Assuming text and href are required, title optional #}
+	{% if text and href %}<a href="{{ href }}"{% if title %} title="{{ title }}"{% endif %} data-test-flip-on>{{ text }}</a>{% endif %}
+</div>

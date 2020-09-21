@@ -23,3 +23,30 @@ $screen-xxs-max: $screen-xs-min - 1;
 $screen-xs-max: $screen-sm-min - 1;
 $screen-sm-max: $screen-md-min - 1;
 $screen-md-max: $screen-lg-min - 1;
+
+
+// Colors (via https://www.redhat.com/en/about/brand/standards/color)
+$brand-darkest: #5f0000;
+$brand-darker: #be0000;
+$brand-color: #ee0000;
+$brand-lighter: #f5606d;
+$brand-lightest: #fab6b6;
+
+$neutral-darkest: #000000;
+$neutral-darker: #4d4d4d;
+$neutral-color: #aaaaaa;
+$neutral-lighter: #dedede;
+$neutral-lightest: #ffffff;
+
+
+// Colors in context
+$button-color: $neutral-darkest;
+$button-bg: transparent;
+$button-color-hover: $neutral-lightest;
+$button-bg-hover: $neutral-darkest;
+
+$light-text-color: $neutral-lightest;
+$dark-text-color: $neutral-darkest;
+
+$link-color: #0066cc;
+$link-color-hover: #004080;

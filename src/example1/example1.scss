@@ -1,3 +1,9 @@
 @import "default";
 
-// Custom styles
+.test-card {
+    display: none;
+
+    &[data-test-visible] {
+        display: block;
+    }
+}

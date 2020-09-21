@@ -1,7 +1,8 @@
 {% set has_header = block( "band_header" ) is not empty %}
-{% set has_body     = block( "band_body" ) is not empty %}
-{% set has_footer   = block( "band_footer" ) is not empty %}
+{% set has_body = block( "band_body" ) is not empty %}
+{% set has_footer = block( "band_footer" ) is not empty %}
 
+{# Not 100% understanding the comment below so I'll leave the logic as-is #}
 {# Break apart aside position values for better control of logic #}
 {%- if has_header or has_body or has_footer -%}
     <section class="test-band--layout">
@@ -10,17 +11,17 @@
                 <header class="test-band-header">
                     {% block band_header %}{% endblock %}
                 </header>
-        {% endif %}
-        {% if has_body %}
+            {% endif %}
+            {% if has_body %}
                 <div class="test-band-content">
                     {% block band_body %}{% endblock %}
                 </div>
             {% endif %}
-        {% if has_footer %}
-        <footer class="test-band-footer">
+            {% if has_footer %}
+                <footer class="test-band-footer">
                     {% block band_footer %}{% endblock %}
+                </footer>
+            {% endif %}
         </div>
-        {% endif %}
-    </footer>
     </section>
 {%- endif -%}

@@ -3,5 +3,7 @@
 	&-title {
 		@extend %default-title;
 	}
-	&-headline {}
+	&-headline {
+		@extend %default-headline;
+	}
 }

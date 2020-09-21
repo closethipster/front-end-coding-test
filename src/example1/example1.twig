@@ -5,29 +5,42 @@
 {% set css = "example1" %}
 {% set js = "example1" %}
 
+{# Defining this because we use it more than once #}
+{% set has_multiple_cards = data.cards|length > 1 %}
+
 {% block content %}
 	{% embed "../library/layouts/_band.twig" %}
-	
+
 		{% block band_header %}
 			{% include "../library/components/_header.twig" with {
 				"title": data.header.title,
 				"headline": data.header.headline
 			} only %}
 		{% endblock %}
-		
+
 		{% block band_body %}
+			{% if has_multiple_cards %}
+				{# Assuming this is a data attribute based on its name. #}
+				<div data-test-layout>
+			{% endif %}
 			{% for card in data.cards %}
-				{% for side in card %}
-					{% include "../library/layouts/_card.twig" with side only %}
+				{# Hate to do another wrapper here, but we have a named key, front|back, and a perfect opportunity to use it. I don't believe I can pass it on to the card template without removing the "only" and I don't want to do that for a few reasons. :) #}
+				{% for key, side in card %}
+					<div class="test-card {{ key }}"{% if key == "front" %} data-test-visible{% endif %}>
+						{% include "../library/layouts/_card.twig" with side only %}
+					</div>
 				{% endfor %}
 			{% endfor %}
+			{% if has_multiple_cards %}
+				</div>
+			{% endif %}
 		{% endblock %}
-	
+
 		{% block band_footer %}
 			{% include "../library/components/_copy.twig" with {
 				"content": data.footer.content
 			} only %}
 		{% endblock %}
-	
+
 	{% endembed %}
 {% endblock %}

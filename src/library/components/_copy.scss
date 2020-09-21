@@ -1,5 +1,17 @@
 .test-copy {
 	&--component {
 		@extend %default-copy;
+		a {
+			color: $link-color;
+			text-decoration: none;
+
+			&:hover {
+				color: $link-color-hover;
+				text-decoration: underline;
+			}
+		}
+		small {
+			color: $light-text-color;
+		}
 	}
 }
